@@ -1,6 +1,59 @@
 @import '../../../assets/sass/global/functions';
 @import '../../../assets/sass/global/variables';
 
-.txtColor {
-  color: color(primary);
+.textWrapper {
+  //Font Color
+  &.primaryColor {
+    color: color(primary);
+  }
+  &.darkColor {
+    color: color(dark);
+  }
+  &.dangerColor {
+    color: color(danger);
+  }
+  &.lightGreyColor {
+    color: color(light-grey);
+  }
+  //Font-Size
+  &.xxSmall {
+    font-size: get-font-size(xx-small);
+  }
+  &.xSmall {
+    font-size: get-font-size(x-small);
+  }
+  &.small {
+    font-size: get-font-size(small);
+  }
+  &.regular {
+    font-size: get-font-size(regular);
+  }
+  &.medium {
+    font-size: get-font-size(medium);
+  }
+  &.large {
+    font-size: get-font-size(large);
+  }
+  &.mLarge {
+    font-size: get-font-size(m-large);
+  }
+  &.xLarge {
+    font-size: get-font-size(x-large);
+  }
+  &.xxLarge {
+    font-size: get-font-size(xx-large);
+  }
+  //Font Weight
+  &.lightFontWeight {
+    font-weight: get-font-weight(light);
+  }
+  &.regularFontWeight {
+    font-weight: get-font-weight(regular);
+  }
+  &.semiboldFontWeight {
+    font-weight: get-font-weight(semi-bold);
+  }
+  &.boldFontWeight {
+    font-weight: get-font-weight(bold);
+  }
 }

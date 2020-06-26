@@ -2,10 +2,11 @@ import PropTypes from 'prop-types';
 import React, { lazy } from 'react';
 import { useSelector } from 'react-redux';
 import { Switch } from 'react-router-dom';
-import AuthLayout from 'shared/Layouts/AuthLayout';
+import Layout from 'shared/Layouts';
 import NoAuthRoute from './NoAuthRoute';
 
 const Login = lazy(() => import('app/pages/Login'));
+const Student = lazy(() => import('app/pages/Student'));
 
 const PublicRoute = ({ match }) => {
   const { loggedIn } = useSelector((state) => state.auth);
@@ -17,8 +18,15 @@ const PublicRoute = ({ match }) => {
           exact
           path="/login"
           isAuthenticated={loggedIn}
-          layout={AuthLayout}
+          layout={Layout}
           component={Login}
+        />
+        <NoAuthRoute
+          exact
+          path="/student"
+          isAuthenticated={loggedIn}
+          layout={Layout}
+          component={Student}
         />
       </Switch>
     </>

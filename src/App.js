@@ -33,9 +33,10 @@ const App = () => (
   <BrowserRouter>
     <ScrollToTop>
       <Switch>
-        <Redirect exact from="/" to="/login" />
+        <Redirect exact from="/" to="/student" />
         <Route path="/app" component={PrivateRoute} />
         <Route path="/" component={PublicRoute} />
+        <Route path="/student" component={PublicRoute} />
       </Switch>
     </ScrollToTop>
   </BrowserRouter>

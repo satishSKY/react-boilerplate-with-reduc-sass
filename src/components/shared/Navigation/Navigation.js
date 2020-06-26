@@ -1,20 +1,12 @@
 import { authConstants } from 'app/redux/constants';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
-import {
-  Collapse,
-  Nav,
-  Navbar,
-  NavbarBrand,
-  NavbarToggler,
-  NavItem,
-} from 'reactstrap';
-import Button from 'shared/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navbar, NavbarBrand } from 'reactstrap';
 
 const { LOGOUT_SUCCESS } = authConstants;
 
 const Navigation = () => {
+  const { loggedIn } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState();
 
@@ -31,27 +23,34 @@ const Navigation = () => {
 
   return (
     <Navbar className="nav" color="secondary" fixed="true" light expand="md">
+      <NavbarBrand href="/">My Icon</NavbarBrand>
       <div className="container">
-        <NavbarBrand href="/">My Icon</NavbarBrand>
-        <NavbarToggler onClick={handleToggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink className="nav-link" exact to="/app/home">
-                Dashboard
-              </NavLink>
-            </NavItem>
+        {loggedIn && (
+          <>
+            <NavbarToggler onClick={handleToggle} />
+            <Collapse isOpen={isOpen} navbar>
+              <Nav className="ml-auto" navbar>
+                <NavItem>
+                  <NavLink className="nav-link" exact to="/app/home">
+                    Dashboard
+                  </NavLink>
+                </NavItem>
 
-            <NavItem>
-              <NavLink className="nav-link" to="/app/about">
-                Contact Us
-              </NavLink>
-            </NavItem>
-          </Nav>
-        </Collapse>
-        <Button onClick={handleLogout} className="btn btn-outline-light btn-sm">
-          Logout
-        </Button>
+                <NavItem>
+                  <NavLink className="nav-link" to="/app/about">
+                    Contact Us
+                  </NavLink>
+                </NavItem>
+              </Nav>
+            </Collapse>
+            <Button
+              onClick={handleLogout}
+              className="btn btn-outline-light btn-sm"
+            >
+              Logout
+            </Button>
+          </>
+        )}
       </div>
     </Navbar>
   );
