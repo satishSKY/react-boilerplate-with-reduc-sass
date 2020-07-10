@@ -17,7 +17,7 @@ const AuthRoute = ({
           return (
             <Suspense fallback={<Loader show />}>
               <Layout>
-                <Component {...props} />{' '}
+                <Component {...props} />
               </Layout>
             </Suspense>
           );

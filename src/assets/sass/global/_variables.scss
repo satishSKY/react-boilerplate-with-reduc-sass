@@ -1,11 +1,15 @@
 $colors: (
   success: #28a745,
   light: #f8f9fa,
-  grey: #7a7a7a,
-  light-grey: #f8f9fa,
-  primary: #0074d9,
+  grey: #545454,
+  light-grey: #dee1e4,
+  primary: #57b6dd,
   danger: #ff4136,
   dark: #343a40,
+  secondary: #9d9999,
+  white: #ffffff,
+  grey-dark: #3d3d3d,
+  tertiary: #5e5e5e,
 );
 
 $font-weights: (
@@ -21,7 +25,7 @@ $font-sizes: (
   small: 14px,
   regular: 16px,
   medium: 18px,
-  large: 24px,
+  large: 21px,
   m-large: 35px,
   x-large: 40px,
   xx-large: 70px,

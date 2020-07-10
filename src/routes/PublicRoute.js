@@ -6,27 +6,35 @@ import Layout from 'shared/Layouts';
 import NoAuthRoute from './NoAuthRoute';
 
 const Login = lazy(() => import('app/pages/Login'));
-const Student = lazy(() => import('app/pages/Student'));
+const Student = lazy(() => import('app/pages/Student'));const NotFound = lazy(() => import('app/pages/NotFound'));
 
-const PublicRoute = ({ match }) => {
+
+const PublicRoute = () => {
   const { loggedIn } = useSelector((state) => state.auth);
 
   return (
     <>
       <Switch>
         <NoAuthRoute
-          exact
+          exact={true}
           path="/login"
           isAuthenticated={loggedIn}
           layout={Layout}
           component={Login}
         />
         <NoAuthRoute
-          exact
+          exact={true}
           path="/student"
           isAuthenticated={loggedIn}
           layout={Layout}
           component={Student}
+        />
+<NoAuthRoute
+          exact={true}
+          path="*"
+          isAuthenticated={loggedIn}
+          layout={Layout}
+          component={NotFound}
         />
       </Switch>
     </>

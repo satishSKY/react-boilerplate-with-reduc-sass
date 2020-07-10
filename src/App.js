@@ -12,7 +12,7 @@ import {
 
 const Scroll = (props) => {
   React.useEffect(() => {
-    ``;
+
     window.scrollTo(0, 0);
   }, [props.location]);
 
@@ -36,7 +36,8 @@ const App = () => (
         <Redirect exact from="/" to="/student" />
         <Route path="/app" component={PrivateRoute} />
         <Route path="/" component={PublicRoute} />
-        <Route path="/student" component={PublicRoute} />
+        <Route path="/student" component={PublicRoute} /><Route path="*" exact={true} component={PublicRoute} />
+
       </Switch>
     </ScrollToTop>
   </BrowserRouter>

@@ -16,14 +16,14 @@ const PrivateRoute = ({ match }) => {
     <>
       <Switch>
         <AuthRoute
-          exact
+          exact={true}
           path={`${match.path}/home`}
           isAuthenticated={loggedIn}
           layout={Layout}
           component={Home}
         />
         <AuthRoute
-          exact
+          exact={true}
           path={`${match.path}/about`}
           isAuthenticated={loggedIn}
           layout={Layout}
